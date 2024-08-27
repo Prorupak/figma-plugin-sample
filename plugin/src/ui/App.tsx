@@ -4,7 +4,6 @@ import { render } from "react-dom";
 import "figma-plugin-types";
 import "./figma-ui.min.css";
 import MainPluginPage from "./components/MainPage";
-import SuccessPage from "./components/SuccessPage";
 import LoginPage from "./components/Login";
 import { useAuthCheck, useAuthStore } from "../hooks/useAuthStore";
 const App = () => {
@@ -15,20 +14,15 @@ const App = () => {
     loading,
     startOAuthFlow,
     checkingAuthStatus,
-    isNewLogin,
   } = useAuthStore();
 
   const [showMainPlugin, setShowMainPlugin] = React.useState(false);
 
-  const handleRedirect = () => {
-    setShowMainPlugin(true);
-  };
-
   React.useEffect(() => {
-    if (isAuthenticated && !isNewLogin) {
+    if (isAuthenticated) {
       setShowMainPlugin(true);
     }
-  }, [isAuthenticated, isNewLogin]);
+  }, [isAuthenticated]);
 
   if (checkingAuthStatus) {
     return <div className="loading-screen">Loading...</div>;
@@ -36,8 +30,6 @@ const App = () => {
 
   if (isAuthenticated && showMainPlugin) {
     return <MainPluginPage />;
-  } else if (isAuthenticated && isNewLogin) {
-    return <SuccessPage onRedirect={handleRedirect} />;
   } else {
     return <LoginPage loading={loading} startOAuthFlow={startOAuthFlow} />;
   }

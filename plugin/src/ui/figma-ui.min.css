@@ -79,8 +79,9 @@ body {
   border: 3px solid rgba(255, 255, 255, 0.3);
   border-top: 3px solid #ffffff;
   border-radius: 50%;
-  width: 1rem;
-  height: 1rem;
+  /* padding: 0.5rem 0.875rem; */
+  width: 0.875rem;
+  height: 0.875rem;
   animation: spin 1s linear infinite;
 }
 
