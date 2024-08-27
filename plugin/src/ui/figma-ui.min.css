@@ -21,10 +21,7 @@ body {
 
 /* Login Card */
 .login-card {
-  background: #ffffff;
   padding: 2rem 3rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   text-align: center;
   max-width: 350px;
   width: 100%;
@@ -32,15 +29,16 @@ body {
 
 /* Login Title */
 .login-title {
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: 1rem;
+  font-weight: 500;  
+  width: 100%;
   color: #333333;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.2rem;
 }
 
 /* Login Subtitle */
 .login-subtitle {
-  font-size: 1rem;
+  font-size: 0.75rem;
   color: #777777;
   margin-bottom: 2rem;
 }
@@ -56,8 +54,8 @@ body {
 .login-button {
   background-color: #007bff;
   color: #ffffff;
-  padding: 0.8rem 1.2rem;
-  font-size: 1rem;
+  padding: 0.5rem 0.875rem;
+  font-size: 0.875rem;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -65,7 +63,6 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
 }
 
 .login-button:hover {
@@ -100,4 +97,10 @@ body {
 .loading {
   padding-left: 2.5rem;
   padding-right: 2.5rem;
+}
+
+.images {
+  background-image: url("../assets/selfie.png");
+  width: 200;
+  height: 200;
 }
