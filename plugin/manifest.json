@@ -1,0 +1,8 @@
+{
+  "name": "SSO Sample",
+  "id": "sso-sample",
+  "api": "1.0.0",
+  "main": "dist/code.js",
+  "ui": "dist/ui.html",
+  "editorType": ["figma"]
+}

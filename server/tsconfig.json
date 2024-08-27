@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "module": "ESNext", // or "NodeNext"
+    "moduleResolution": "node",
+    "target": "ESNext",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules"]
+}
