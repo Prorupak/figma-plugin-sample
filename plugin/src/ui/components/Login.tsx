@@ -1,4 +1,5 @@
 import * as React from "react";
+import Logo from "./Logo";
 
 interface LoginPageProps {
   loading: boolean;
@@ -7,16 +8,25 @@ interface LoginPageProps {
 
 const LoginPage: React.FC<LoginPageProps> = ({ loading, startOAuthFlow }) => {
   return (
-    <div className="login-container">
+    <div
+      className="login-container"
+      style={{ justifyContent: "center", height: "100vh" }}
+    >
       <div className="login-card">
-        <h2 className="login-title">Welcome to the Figma Plugin</h2>
-        <p className="login-subtitle">Sign in to continue</p>
+        <div className="logo-wrapper" style={{ marginBottom: "1rem" }}>
+          <Logo />
+        </div>
+
+        <h2 className="login-title">You are logged out</h2>
+        <p className="login-subtitle">
+          Please login to start using plugin again.
+        </p>
         <button
           className={`login-button ${loading ? "loading" : ""}`}
           onClick={startOAuthFlow}
           disabled={loading}
         >
-          {loading ? <span className="spinner"></span> : "Log in with OAuth"}
+          {loading ? <span className="spinner"></span> : "Log in with Figma"}
         </button>
       </div>
     </div>

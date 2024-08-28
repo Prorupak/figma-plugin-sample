@@ -81,7 +81,6 @@ export const useAuthStore = create<AuthState>((set) => ({
   setIsNewLogin: (value: boolean) => set({ isNewLogin: value }),
 }));
 
-// Hook to handle the initial authentication check
 export const useAuthCheck = () => {
   const { setCheckingAuthStatus } = useAuthStore();
 
@@ -94,7 +93,6 @@ export const useAuthCheck = () => {
           await checkSession(msg?.data?.userId);
         }
       }
-      console.log({ msg });
       setCheckingAuthStatus(false);
     };
 

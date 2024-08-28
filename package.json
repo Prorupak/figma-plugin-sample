@@ -4,9 +4,9 @@
   "description": "sample figma plugin",
   "scripts": {
     "start-plugin": "cd plugin && pnpm watch",
-    "start-server": "cd server && npm dev",
-    "start": "concurrently \"pnpm start-server\" \"pnpm start-client\"",
-    "init-project": "concurrently \"cd frontend && pnpm install\" \"cd server && pnpm install\""
+    "start-server": "cd server && pnpm dev",
+    "start": "concurrently \"pnpm start-server\" \"pnpm start-plugin\"",
+    "init-project": "pnpm i && concurrently \"cd plugin && pnpm install\" \"cd server && pnpm install\""
   },
   "keywords": [],
   "author": "Rupak Sapkota <sapkotarupak5570@gmail.com>",

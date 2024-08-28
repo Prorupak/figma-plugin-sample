@@ -1,6 +1,6 @@
 {
-  "name": "SSO Sample",
-  "id": "sso-sample",
+  "name": "Text Search",
+  "id": "text-search",
   "api": "1.0.0",
   "main": "dist/code.js",
   "ui": "dist/ui.html",
