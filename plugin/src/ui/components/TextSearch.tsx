@@ -17,6 +17,7 @@ const SearchPlugin: React.FC = () => {
     parent.postMessage(
       {
         pluginMessage: {
+          type: "search-query",
           query: newQuery,
         },
       },
@@ -37,6 +38,7 @@ const SearchPlugin: React.FC = () => {
     parent.postMessage(
       {
         pluginMessage: {
+          type: "show",
           show: results[prev],
         },
       },
@@ -50,16 +52,13 @@ const SearchPlugin: React.FC = () => {
     parent.postMessage(
       {
         pluginMessage: {
+          type: "show",
           show: results[next],
         },
       },
       "*"
     );
   };
-
-  // const quit = () => {
-  //   parent.postMessage({ pluginMessage: { quit: true } }, "*");
-  // };
 
   useEffect(() => {
     const handleMessage = (event: MessageEvent) => {
