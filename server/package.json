@@ -21,7 +21,8 @@
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "node-fetch": "^3.3.2",
-    "pkce-challenge": "^4.1.0"
+    "pkce-challenge": "^4.1.0",
+    "rimraf": "^6.0.1"
   },
   "devDependencies": {
     "@ef-carbon/tspm": "^2.2.5",
@@ -32,7 +33,6 @@
     "eslint": "^9.9.1",
     "globals": "^15.9.0",
     "nodemon": "^3.1.4",
-    "rimraf": "^6.0.1",
     "tsx": "^4.19.0",
     "typescript": "^5.5.4",
     "typescript-eslint": "^8.2.0"
