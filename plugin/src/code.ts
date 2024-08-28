@@ -1,7 +1,7 @@
 import "figma-plugin-types";
 
-const width = 800;
-const height = 560;
+const width = 400;
+const height = 500;
 
 const main = () => {
   figma.showUI(__html__, {
