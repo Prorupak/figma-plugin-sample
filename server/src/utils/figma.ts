@@ -1,4 +1,4 @@
-import { FIGMA_CLIENT_ID, REDIRECT_URI } from "./utils";
+import { FIGMA_CLIENT_ID, REDIRECT_URI } from "./globals.js";
 
 /**
  * Constructs the Figma OAuth redirect URL.

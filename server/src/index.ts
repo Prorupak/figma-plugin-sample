@@ -1,14 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import express, { Request, Response } from "express";
 import cors from "cors";
-import { catchAsync } from "./utils";
+import { catchAsync } from "./utils/catch-async.js";
 import {
   checkSession,
   generateFigmaAuthUrl,
   generateKeys,
   handleFigmaOAuthCallback,
   pollForUserSession,
-} from "./services";
+} from "./services/auth.js";
 
 const app = express();
 

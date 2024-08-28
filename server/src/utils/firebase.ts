@@ -1,4 +1,4 @@
-import { FIREBASE_DATABASE_URL } from "./utils";
+import { FIREBASE_DATABASE_URL } from "./globals.js";
 
 export const saveToFirebase = async (path: string, data: object) => {
   await fetch(`${FIREBASE_DATABASE_URL}/${path}.json`, {
