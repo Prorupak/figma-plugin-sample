@@ -5,7 +5,7 @@ services:
     container_name: server
     build:
       context: .
-      dockerfile: ./server/Dockerfile
+      dockerfile: ./Dockerfile
     restart: always
     ports:
       - 6000:6000

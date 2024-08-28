@@ -7,13 +7,17 @@ ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
 
 # Install global dependencies
-RUN corepack enable && npm i -g pm2
+RUN corepack enable && corepack prepare pnpm@latest --activate && npm i -g pm2
 
 WORKDIR $PROJECT_DIR
 
 # Copy and install dependencies
 COPY package.json pnpm-lock.yaml ./
 RUN pnpm install --frozen-lockfile --prod
+CMD [ "cd", "server" ]
+RUN pnpm install --frozen-lockfile --prod
+
+
 
 # Build Stage
 FROM base AS build
@@ -22,8 +26,8 @@ WORKDIR $PROJECT_DIR
 # Copy all files
 COPY . .
 
-# Build both server and plugin
-RUN pnpm build-server && pnpm build-plugin
+# Build both server
+RUN pnpm build-server
 
 # Production Stage
 FROM node:20-slim AS production
