@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - development
 
 jobs:
   deploy_to_dev:
@@ -33,11 +34,12 @@ jobs:
       - name: Execute Remote Commands
         run: |
           ssh -o StrictHostKeyChecking=no ${{ secrets.USERNAME }}@${{ secrets.HOST }} << EOF
+          eval "$(ssh-agent -s)"
           cd ./plugin/figma-plugin-sample
           git fetch --all
-          git checkout master
-          git pull origin master
-          git reset --hard origin/master
-          docker compose up --build
+          git checkout development
+          git reset --hard origin/development
+          git pull origin development
+          node -v
           EOF
 
