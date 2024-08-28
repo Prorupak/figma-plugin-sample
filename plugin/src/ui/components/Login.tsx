@@ -8,9 +8,12 @@ interface LoginPageProps {
 
 const LoginPage: React.FC<LoginPageProps> = ({ loading, startOAuthFlow }) => {
   return (
-    <div className="login-container">
+    <div
+      className="login-container"
+      style={{ justifyContent: "center", height: "100vh" }}
+    >
       <div className="login-card">
-        <div className="logo-wrapper">
+        <div className="logo-wrapper" style={{ marginBottom: "1rem" }}>
           <Logo />
         </div>
 
