@@ -11,5 +11,7 @@
     "module": "commonjs",
     "target": "ES2015",
     "jsx": "react"
-  }
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules"]
 }
