@@ -10,8 +10,8 @@
     "lib": ["dom", "es2017"],
     "module": "commonjs",
     "target": "ES2015",
-    "jsx": "react"
+    "jsx": "react",
+    "typeRoots": ["./node_modules/@types", "./node_modules/@figma"]
   },
-  "include": ["src/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": ["src/**/*.ts"]
 }

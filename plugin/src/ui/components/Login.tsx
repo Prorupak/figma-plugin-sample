@@ -7,6 +7,9 @@ interface LoginPageProps {
 }
 
 const LoginPage: React.FC<LoginPageProps> = ({ loading, startOAuthFlow }) => {
+  const cancelLogin = () => {
+    parent.postMessage({ pluginMessage: { type: "quit" } }, "*");
+  };
   return (
     <div
       className="login-container"
@@ -21,13 +24,32 @@ const LoginPage: React.FC<LoginPageProps> = ({ loading, startOAuthFlow }) => {
         <p className="login-subtitle">
           Please login to start using plugin again.
         </p>
-        <button
-          className={`login-button ${loading ? "loading" : ""}`}
-          onClick={startOAuthFlow}
-          disabled={loading}
+        <div
+          style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}
         >
-          {loading ? <span className="spinner"></span> : "Log in with Figma"}
-        </button>
+          <button
+            className={`login-button ${loading ? "loading" : ""}`}
+            onClick={startOAuthFlow}
+            disabled={loading}
+          >
+            {loading ? <span className="spinner"></span> : "Log in with Figma"}
+          </button>
+          {loading && (
+            <button
+              type="button"
+              style={{
+                cursor: "pointer",
+                backgroundColor: "transparent",
+                border: "none",
+                fontSize: "1rem",
+                color: "var(--purple-color)",
+              }}
+              onClick={cancelLogin}
+            >
+              Cancel
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );

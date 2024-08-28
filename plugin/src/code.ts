@@ -1,5 +1,3 @@
-import "figma-plugin-types";
-
 const width = 400;
 const height = 500;
 let timer: number | ReturnType<typeof setTimeout>;
@@ -68,7 +66,7 @@ figma.ui.onmessage = async (msg: MessageData) => {
 
     case "show":
       if (isShowMessage(msg)) {
-        const node = figma.getNodeById(msg.show);
+        const node = await figma.getNodeByIdAsync(msg.show);
         if (node?.type !== "DOCUMENT" && node?.type !== "PAGE") {
           figma.currentPage.selection = [node as SceneNode];
           figma.viewport.scrollAndZoomIntoView([node as SceneNode]);
@@ -86,7 +84,7 @@ function* walkTree(node: BaseNode): Generator<BaseNode, void, unknown> {
   yield node;
   if ("children" in node) {
     for (const child of node.children) {
-      yield * walkTree(child);
+      yield* walkTree(child);
     }
   }
 }
