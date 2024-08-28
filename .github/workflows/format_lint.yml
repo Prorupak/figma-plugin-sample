@@ -1,0 +1,26 @@
+name: Check formatting and linting
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - edited
+    branches:
+      - development
+
+jobs:
+  lint_and_format:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 18
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18.x
+      - run: npm install -g pnpm
+      - run: pnpm i
+      - run: pnpm run lint
+      - run: pnpm build
+
