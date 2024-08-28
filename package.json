@@ -5,11 +5,6 @@
   "scripts": {
     "start-plugin": "cd plugin && pnpm watch",
     "start-server": "cd server && pnpm dev",
-    "start-server-prod": "cd server && pnpm prod",
-    "build-plugin": "cd plugin && pnpm build",
-    "build-server": "cd server && pnpm build",
-    "lint-plugin": "cd plugin && pnpm lint",
-    "lint-server": "cd server && pnpm lint",
     "start": "concurrently \"pnpm start-server\" \"pnpm start-plugin\"",
     "lint": "concurrently \"pnpm lint-server\" \"pnpm lint-plugin\"",
     "build": "concurrently \"pnpm build-server\" \"pnpm build-plugin\"",
