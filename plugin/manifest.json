@@ -1,8 +1,17 @@
 {
-  "name": "Text Search",
-  "id": "text-search",
+  "name": "Text Finder",
+  "id": "1410612474721562416",
   "api": "1.0.0",
   "main": "dist/code.js",
   "ui": "dist/ui.html",
-  "editorType": ["figma"]
+  "editorType": ["figma"],
+  "networkAccess": {
+    "reasoning": "",
+    "allowedDomains": [
+      "https://plugin.sapkotarupak.com.np",
+      "https://figma.com"
+    ],
+    "devAllowedDomains": ["http://localhost:3000"]
+  },
+  "documentAccess": "dynamic-page"
 }
