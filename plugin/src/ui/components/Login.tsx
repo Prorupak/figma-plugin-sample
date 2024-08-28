@@ -1,4 +1,5 @@
 import * as React from "react";
+import Logo from "./Logo";
 
 interface LoginPageProps {
   loading: boolean;
@@ -9,6 +10,10 @@ const LoginPage: React.FC<LoginPageProps> = ({ loading, startOAuthFlow }) => {
   return (
     <div className="login-container">
       <div className="login-card">
+        <div className="logo-wrapper">
+          <Logo />
+        </div>
+
         <h2 className="login-title">You are logged out</h2>
         <p className="login-subtitle">
           Please login to start using plugin again.
