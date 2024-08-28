@@ -5,6 +5,7 @@
   "scripts": {
     "start-plugin": "cd plugin && pnpm watch",
     "start-server": "cd server && pnpm dev",
+    "start-server-prod": "cd server && pnpm prod",
     "build-plugin": "cd plugin && pnpm build",
     "build-server": "cd server && pnpm build",
     "lint-plugin": "cd plugin && pnpm lint",
@@ -19,5 +20,8 @@
   "license": "MIT",
   "devDependencies": {
     "concurrently": "^8.2.2"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5"
   }
 }
