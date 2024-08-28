@@ -1,13 +1,18 @@
 {
   "compilerOptions": {
-    "module": "ESNext", // or "NodeNext"
-    "moduleResolution": "node",
+    "module": "NodeNext", // or "ESNext"
+    "moduleResolution": "NodeNext",
     "target": "ESNext",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "outDir": "./dist",
     "rootDir": "./src",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "noImplicitAny": false,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true
   },
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules"]

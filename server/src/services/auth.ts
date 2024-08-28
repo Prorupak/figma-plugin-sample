@@ -5,19 +5,21 @@ import {
   TPKCEVerifierResponse,
   TTokenResponseData,
   TUserDataResponse,
-} from "../types";
+} from "../types.js";
+import { handleUnknownError } from "../utils/error.js";
+import { constructRedirectUrl } from "../utils/figma.js";
 import {
   deleteFromFirebase,
   fetchFromFirebase,
+  saveToFirebase,
+} from "../utils/firebase.js";
+import { generatePkceChallenge } from "../utils/generate-pkce-challenge.js";
+import { generateRandomKey } from "../utils/generate-random-key.js";
+import {
   FIGMA_CLIENT_ID,
   FIGMA_CLIENT_SECRET,
-  generateRandomKey,
-  handleUnknownError,
   REDIRECT_URI,
-  saveToFirebase,
-} from "../utils";
-import { constructRedirectUrl } from "../utils/figma";
-import { generatePkceChallenge } from "../utils/generate-pkce-challenge";
+} from "../utils/globals.js";
 
 /**
  * Generates a pair of read and write keys, and saves the write key to Firebase.

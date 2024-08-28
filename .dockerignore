@@ -1,0 +1,7 @@
+node_modules
+.pnpm-store
+docker-compose.yml
+*.env
+dist
+out
+coverage

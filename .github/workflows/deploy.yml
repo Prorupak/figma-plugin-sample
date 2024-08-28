@@ -1,0 +1,43 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy_to_dev:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js 18
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18.x
+      - name: Install dependencies
+        run: |
+          npm install -g pnpm
+          pnpm init-project
+      - name: Lint
+        run: pnpm run lint
+      - name: Build
+        run: pnpm build
+
+      # SSH Deployment Steps
+      - name: Set up SSH Agent
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+      
+      - name: Execute Remote Commands
+        run: |
+          ssh -o StrictHostKeyChecking=no ${{ secrets.USERNAME }}@${{ secrets.HOST }} << EOF
+          cd rupak/plugin-sample
+          git fetch --all
+          git checkout master
+          git pull origin master
+          git reset --hard origin/master
+          docker compose up --build
+          EOF
+

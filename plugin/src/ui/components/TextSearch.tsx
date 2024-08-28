@@ -9,14 +9,20 @@ const SearchPlugin: React.FC = () => {
   const [current, setCurrent] = useState<number | undefined>(undefined);
   const [searching, setSearching] = useState<boolean>(false);
 
-  console.log({ results });
-
   const updateSearch = useDebounceCallback((newQuery: string) => {
     setQuery(newQuery);
     setResults([]);
     setCurrent(undefined);
     setSearching(newQuery !== "");
-    parent.postMessage({ pluginMessage: { query: newQuery } }, "*");
+    parent.postMessage(
+      {
+        pluginMessage: {
+          type: "search-query",
+          query: newQuery,
+        },
+      },
+      "*"
+    );
   }, 300);
 
   const getPrevious = () =>
@@ -29,18 +35,30 @@ const SearchPlugin: React.FC = () => {
   const showPrevious = () => {
     const prev = getPrevious();
     setCurrent(prev);
-    parent.postMessage({ pluginMessage: { show: results[prev] } }, "*");
+    parent.postMessage(
+      {
+        pluginMessage: {
+          type: "show",
+          show: results[prev],
+        },
+      },
+      "*"
+    );
   };
 
   const showNext = () => {
     const next = getNext();
     setCurrent(next);
-    parent.postMessage({ pluginMessage: { show: results[next] } }, "*");
+    parent.postMessage(
+      {
+        pluginMessage: {
+          type: "show",
+          show: results[next],
+        },
+      },
+      "*"
+    );
   };
-
-  // const quit = () => {
-  //   parent.postMessage({ pluginMessage: { quit: true } }, "*");
-  // };
 
   useEffect(() => {
     const handleMessage = (event: MessageEvent) => {
