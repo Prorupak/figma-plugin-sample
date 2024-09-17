@@ -6,7 +6,7 @@ This project is a Figma plugin that helps users search and navigate text within 
 ### Project Structure
 
  - plugin/: Contains the Figma plugin using ReactJS and TypeScript.
- - server/: Contains the backend server using ExpressJS, ReactJS,
+ - server/: Contains the backend server using ExpressJS,
    TypeScript, and Firebase.
  - package.json: Defines scripts for building, starting, and linting
    both the plugin and server.
